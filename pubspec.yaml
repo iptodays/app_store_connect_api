@@ -1,0 +1,26 @@
+name: app_store_connect_api
+description: App Store Connect Api
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: '>=2.19.2 <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # https://pub.dev/packages/dart_jsonwebtoken
+  dart_jsonwebtoken: ^2.7.1
+  # https://pub.dev/packages/dio
+  dio: ^5.0.3
+  # https://pub.dev/packages/crypto
+  crypto: ^3.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  
+
+flutter:
