@@ -7,7 +7,7 @@
  * 
  * Copyright (c) 2023 by iptoday wangdong1221@outlook.com, All Rights Reserved.
  */
-import 'package:app_store_connect_api/src/models/error.dart';
+import 'package:app_store_connect_api_v1/src/models/error.dart';
 
 class ApiResponse<T> {
   T? result;

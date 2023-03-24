@@ -7,7 +7,7 @@
  * 
  * Copyright (c) 2023 by iptoday wangdong1221@outlook.com, All Rights Reserved.
  */
-import 'package:app_store_connect_api/src/api/interceptors.dart';
+import 'package:app_store_connect_api_v1/src/api/interceptors.dart';
 
 import '../models/response.dart';
 import 'package:dio/dio.dart';

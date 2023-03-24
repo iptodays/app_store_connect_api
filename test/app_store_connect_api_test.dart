@@ -4,14 +4,14 @@
  * @Author: iptoday wangdong1221@outlook.com
  * @Date: 2023-02-28 19:45:36
  * @LastEditors: iptoday wangdong1221@outlook.com
- * @LastEditTime: 2023-03-23 23:44:56
+ * @LastEditTime: 2023-03-24 18:30:33
  * @FilePath: /app_store_connect_api/test/app_store_connect_api_test.dart
  * 
  * Copyright (c) 2023 by iptoday wangdong1221@outlook.com, All Rights Reserved.
  */
 
 import 'dart:io';
-import 'package:app_store_connect_api/app_store_connect_api.dart';
+import 'package:app_store_connect_api_v1/app_store_connect_api.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() async {
@@ -47,37 +47,6 @@ void main() async {
             attributes: BundleIdCreateRequestDataAttributes(
               identifier: 'com.appstoreconnectapi.app',
               name: 'appstoreconnectapi',
-            ),
-          ),
-        ),
-      );
-      print('error: ${response.errors?.map((e) => e.toJson()).toList()}');
-      print('success: ${response.result?.toJson()}');
-    },
-  );
-
-  test(
-    '开启iCloud',
-    () async {
-      var response = await app.enableBundleIdCapabilities(
-        request: BundleIdCapabilityCreateRequest(
-          data: BundleIdCapabilityCreateRequestData(
-            attributes: BundleIdCapabilityCreateRequestDataAttributes(
-              capabilityType: 'ICLOUD',
-              settings: [
-                CapabilitySetting(
-                  key: 'ICLOUD_VERSION',
-                ),
-              ],
-            ),
-            relationships: BundleIdCapabilityCreateRequestDataRelationships(
-              bundleId:
-                  BundleIdCapabilityCreateRequestDataRelationshipsBundleId(
-                data:
-                    BundleIdCapabilityCreateRequestDataRelationshipsBundleIdData(
-                  id: 'RHMLVM3295',
-                ),
-              ),
             ),
           ),
         ),
@@ -134,7 +103,7 @@ void main() async {
   test(
     '获取App版本信息',
     () async {
-      var response = await app.getAppStoreVersions(appId);
+      var response = await app.getAppStoreVersions('6446046555');
       print('error: ${response.errors?.map((e) => e.toJson()).toList()}');
       print('success: ${response.result?.toJson()}');
     },
@@ -231,7 +200,34 @@ void main() async {
   );
 
   test(
-    '获取AppStore某版本下的本地化信息列表',
+    '创建新的本地化',
+    () async {
+      var response = await app.createAppStoreVersionLocalization(
+        request: AppStoreVersionLocalizationCreateRequest(
+          data: AppStoreVersionLocalizationCreateRequestData(
+            attributes: AppStoreVersionLocalizationCreateRequestDataAttributes(
+              locale: AppleLocale.ja,
+            ),
+            relationships:
+                AppStoreVersionLocalizationCreateRequestDataRelationships(
+              appStoreVersion:
+                  AppStoreVersionLocalizationCreateRequestDataRelationshipsAppStoreVersion(
+                data:
+                    AppStoreVersionLocalizationCreateRequestDataRelationshipsAppStoreVersionData(
+                  id: '662e5c29-99b3-4977-a3ea-9a9e7156e727',
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+      print('error: ${response.errors?.map((e) => e.toJson()).toList()}');
+      print('success: ${response.result?.toJson()}');
+    },
+  );
+
+  test(
+    '获取本地化信息列表',
     () async {
       var response = await app.getAppStoreVersionLocalizations(
         '662e5c29-99b3-4977-a3ea-9a9e7156e727',

@@ -2,7 +2,7 @@
  * @Author: iptoday wangdong1221@outlook.com
  * @Date: 2023-03-11 12:43:45
  * @LastEditors: iptoday wangdong1221@outlook.com
- * @LastEditTime: 2023-03-23 20:05:12
+ * @LastEditTime: 2023-03-24 16:36:49
  * @FilePath: /app_store_connect_api/lib/src/api/interceptors.dart
  * 
  * Copyright (c) 2023 by iptoday wangdong1221@outlook.com, All Rights Reserved.
@@ -14,13 +14,13 @@ class ApiInterceptor extends InterceptorsWrapper {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     if (options.data != null && options.data is Map) {
       options.data = removeNullValues(options.data);
-      print('request data: ${options.data}');
+      // print('request data: ${options.data}');
     }
     if (options.queryParameters.isNotEmpty) {
       options.queryParameters = removeNullValues(options.queryParameters);
-      print('request queryParameters: ${options.queryParameters}');
+      // print('request queryParameters: ${options.queryParameters}');
     }
-    print('request headers: ${options.headers}');
+    // print('request headers: ${options.headers}');
     super.onRequest(options, handler);
   }
 
@@ -35,11 +35,5 @@ class ApiInterceptor extends InterceptorsWrapper {
       }
     }
     return v;
-  }
-
-  @override
-  void onError(DioError err, ErrorInterceptorHandler handler) {
-    print(err);
-    super.onError(err, handler);
   }
 }

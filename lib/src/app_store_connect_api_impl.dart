@@ -1,19 +1,14 @@
-// ignore_for_file: depend_on_referenced_packages
-
 /*
  * @Author: iptoday wangdong1221@outlook.com
  * @Date: 2023-02-28 19:49:12
  * @LastEditors: iptoday wangdong1221@outlook.com
- * @LastEditTime: 2023-03-23 23:30:36
+ * @LastEditTime: 2023-03-24 18:27:09
  * @FilePath: /app_store_connect_api/lib/src/app_store_connect_api_impl.dart
  * 
  * Copyright (c) 2023 by iptoday wangdong1221@outlook.com, All Rights Reserved.
  */
 import 'dart:io';
 import 'package:convert/convert.dart';
-
-import 'package:app_store_connect_api/src/models/certificate_response.dart';
-import 'package:app_store_connect_api/src/models/request/age_rating_declaration_update_request.dart';
 import 'package:crypto/crypto.dart';
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:dio/dio.dart';
@@ -27,6 +22,8 @@ import 'models/app_screenshot_sets_response.dart';
 import 'models/app_store_review_detail_response.dart';
 import 'models/app_store_version_localizations_response.dart';
 import 'models/bundleId_capability_response.dart';
+import 'models/certificate_response.dart';
+import 'models/request/age_rating_declaration_update_request.dart';
 import 'models/request/app_info_localization_create_request.dart';
 import 'models/request/app_info_localization_update_request.dart';
 import 'models/app_info_localizations_response.dart';
@@ -91,7 +88,7 @@ class AppStoreConnectApi {
       ECPrivateKey(key),
       algorithm: JWTAlgorithm.ES256,
     );
-    print(_signedToken);
+    // print(_signedToken);
     _api = Api(signedToken: _signedToken);
   }
 
@@ -540,7 +537,7 @@ class AppStoreConnectApi {
             method: e.method,
           ),
           onSendProgress: (p0, p1) {
-            print('onSendProgress: ${p0 / p1}');
+            // print('onSendProgress: ${p0 / p1}');
           },
         );
         return response;

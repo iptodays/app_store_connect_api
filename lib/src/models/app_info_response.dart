@@ -2,12 +2,13 @@
  * @Author: iptoday wangdong1221@outlook.com
  * @Date: 2023-03-11 17:00:36
  * @LastEditors: iptoday wangdong1221@outlook.com
- * @LastEditTime: 2023-03-11 21:07:39
+ * @LastEditTime: 2023-03-24 18:32:15
  * @FilePath: /app_store_connect_api/lib/src/models/app_info_response.dart
  * 
  * Copyright (c) 2023 by iptoday wangdong1221@outlook.com, All Rights Reserved.
  */
-import 'package:app_store_connect_api/src/models/paging_information.dart';
+
+import 'paging_information.dart';
 
 class AppInfoResponse {
   late final AppInfo data;
