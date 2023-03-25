@@ -2,7 +2,7 @@
  * @Author: iptoday wangdong1221@outlook.com
  * @Date: 2023-03-11 15:36:52
  * @LastEditors: iptoday wangdong1221@outlook.com
- * @LastEditTime: 2023-03-11 16:38:26
+ * @LastEditTime: 2023-03-24 22:01:58
  * @FilePath: /app_store_connect_api/lib/src/models/certificate_response.dart
  * 
  * Copyright (c) 2023 by iptoday wangdong1221@outlook.com, All Rights Reserved.
@@ -69,7 +69,7 @@ class Certificate {
 
   Map<String, dynamic> toJson() {
     return {
-      'attributes': attributes,
+      'attributes': attributes?.toJson(),
       'id': id,
       'type': type,
     };

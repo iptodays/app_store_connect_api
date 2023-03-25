@@ -2,7 +2,7 @@
  * @Author: iptoday wangdong1221@outlook.com
  * @Date: 2023-02-28 19:49:12
  * @LastEditors: iptoday wangdong1221@outlook.com
- * @LastEditTime: 2023-03-24 18:27:09
+ * @LastEditTime: 2023-03-25 16:58:34
  * @FilePath: /app_store_connect_api/lib/src/app_store_connect_api_impl.dart
  * 
  * Copyright (c) 2023 by iptoday wangdong1221@outlook.com, All Rights Reserved.
@@ -362,6 +362,11 @@ class AppStoreConnectApi {
       '/certificates',
       data: request.toJson(),
     );
+  }
+
+  /// https://developer.apple.com/documentation/appstoreconnectapi/revoke_a_certificate
+  Future<ApiResponse> revokeCertificate(String cerId) async {
+    return _api.delete('/certificates/$cerId');
   }
 
   /// 获取已注册的 Bundle ID
