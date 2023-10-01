@@ -2,7 +2,7 @@
  * @Author: iptoday wangdong1221@outlook.com
  * @Date: 2023-02-28 19:54:56
  * @LastEditors: iptoday wangdong1221@outlook.com
- * @LastEditTime: 2023-03-21 00:20:11
+ * @LastEditTime: 2023-10-01 11:13:45
  * @FilePath: /app_store_connect_api/lib/src/api/api.dart
  * 
  * Copyright (c) 2023 by iptoday wangdong1221@outlook.com, All Rights Reserved.
@@ -146,6 +146,7 @@ class Api {
     )
         .onError(
       (error, stackTrace) {
+        // ignore: deprecated_member_use
         if (error is DioError && error.response != null) {
           return error.response!;
         }

@@ -2,7 +2,7 @@
  * @Author: iptoday wangdong1221@outlook.com
  * @Date: 2023-03-18 15:06:41
  * @LastEditors: iptoday wangdong1221@outlook.com
- * @LastEditTime: 2023-03-18 15:21:28
+ * @LastEditTime: 2023-03-25 20:51:27
  * @FilePath: /app_store_connect_api/lib/src/models/request/profile_create_request.dart
  * 
  * Copyright (c) 2023 by iptoday wangdong1221@outlook.com, All Rights Reserved.
@@ -139,7 +139,7 @@ class ProfileCreateRequestDataRelationshipsCertificates {
 
 /// https://developer.apple.com/documentation/appstoreconnectapi/profilecreaterequest/data/relationships/certificates/data
 class ProfileCreateRequestDataRelationshipsCertificatesData {
-  final String? id;
+  final String id;
 
   final String type;
 

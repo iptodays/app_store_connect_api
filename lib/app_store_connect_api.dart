@@ -2,7 +2,7 @@
  * @Author: iptoday wangdong1221@outlook.com
  * @Date: 2023-02-28 19:45:36
  * @LastEditors: iptoday wangdong1221@outlook.com
- * @LastEditTime: 2023-03-24 18:32:00
+ * @LastEditTime: 2023-03-25 20:31:32
  * @FilePath: /app_store_connect_api/lib/app_store_connect_api.dart
  * 
  * Copyright (c) 2023 by iptoday wangdong1221@outlook.com, All Rights Reserved.
@@ -45,3 +45,4 @@ export 'src/models/request/bundleId_capability_create_request.dart';
 export 'src/models/request/bundleId_create_request.dart';
 export 'src/models/request/certificate_create_request.dart';
 export 'src/models/request/profile_create_request.dart';
+export 'src/models/error.dart';

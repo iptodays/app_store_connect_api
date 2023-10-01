@@ -1,6 +1,6 @@
 name: app_store_connect_api_v1
 description: App Store Connect Api
-version: 0.0.5
+version: 0.0.6
 homepage: https://github.com/iptodays/app_store_connect_api
 
 environment:
@@ -13,11 +13,11 @@ dependencies:
   # https://pub.dev/packages/convert
   convert: ^3.1.1
   # https://pub.dev/packages/dart_jsonwebtoken
-  dart_jsonwebtoken: ^2.7.1
+  dart_jsonwebtoken: ^2.12.0
   # https://pub.dev/packages/dio
-  dio: ^5.0.3
+  dio: ^5.3.3
   # https://pub.dev/packages/crypto
-  crypto: ^3.0.2
+  crypto: ^3.0.3
 
 dev_dependencies:
   flutter_test:

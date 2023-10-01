@@ -2,7 +2,7 @@
  * @Author: iptoday wangdong1221@outlook.com
  * @Date: 2023-02-28 19:49:12
  * @LastEditors: iptoday wangdong1221@outlook.com
- * @LastEditTime: 2023-03-25 17:14:00
+ * @LastEditTime: 2023-10-01 11:13:29
  * @FilePath: /app_store_connect_api/lib/src/app_store_connect_api_impl.dart
  * 
  * Copyright (c) 2023 by iptoday wangdong1221@outlook.com, All Rights Reserved.
@@ -547,6 +547,7 @@ class AppStoreConnectApi {
           },
         );
         return response;
+        // ignore: deprecated_member_use
       } on DioError catch (error) {
         return error.response ?? Response(requestOptions: RequestOptions());
       } catch (error) {
