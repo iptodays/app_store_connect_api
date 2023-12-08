@@ -2,12 +2,13 @@
  * @Author: iptoday wangdong1221@outlook.com
  * @Date: 2023-02-28 19:49:12
  * @LastEditors: iptoday wangdong1221@outlook.com
- * @LastEditTime: 2023-10-01 11:13:29
+ * @LastEditTime: 2023-12-08 18:35:42
  * @FilePath: /app_store_connect_api/lib/src/app_store_connect_api_impl.dart
  * 
  * Copyright (c) 2023 by iptoday wangdong1221@outlook.com, All Rights Reserved.
  */
 import 'dart:io';
+import 'package:app_store_connect_api_v1/src/models/app_screenshots_response.dart';
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
@@ -480,6 +481,16 @@ class AppStoreConnectApi {
     );
   }
 
+  /// https://developer.apple.com/documentation/appstoreconnectapi/list_all_app_screenshots_for_an_app_screenshot_set
+  /// "https://is1-ssl.mzstatic.com/image/thumb/{asset_token}/0x0ss.jpg"
+  Future<ApiResponse<AppScreenshotsResponse>> getAllScreenshotSets(
+      String id) async {
+    return _api.get<AppScreenshotsResponse>(
+      'https://api.appstoreconnect.apple.com/v1/appScreenshotSets/$id/appScreenshots',
+      serialization: AppScreenshotsResponse.fromJson,
+    );
+  }
+
   /// https://developer.apple.com/documentation/appstoreconnectapi/create_an_app_screenshot_set
   Future<ApiResponse<AppScreenshotSetResponse>> creatAppScreenshotSet({
     required AppScreenshotSetCreateRequest request,
@@ -566,6 +577,13 @@ class AppStoreConnectApi {
           id: screenshotId,
         ),
       ).toJson(),
+    );
+  }
+
+  /// https://developer.apple.com/documentation/appstoreconnectapi/delete_an_app_screenshot
+  Future<ApiResponse> deleteAppScreenshot(String screenshotId) async {
+    return _api.delete(
+      'https://api.appstoreconnect.apple.com/v1/appScreenshots/$screenshotId',
     );
   }
 }
