@@ -2,7 +2,7 @@
  * @Author: iptoday wangdong1221@outlook.com
  * @Date: 2023-02-28 19:45:36
  * @LastEditors: iptoday wangdong1221@outlook.com
- * @LastEditTime: 2023-03-25 20:31:32
+ * @LastEditTime: 2023-12-08 15:23:05
  * @FilePath: /app_store_connect_api/lib/app_store_connect_api.dart
  * 
  * Copyright (c) 2023 by iptoday wangdong1221@outlook.com, All Rights Reserved.
@@ -25,6 +25,7 @@ export 'src/models/request/app_info_localization_create_request.dart';
 export 'src/models/request/app_info_localization_update_request.dart';
 export 'src/models/app_info_localizations_response.dart';
 export 'src/models/app_info_response.dart';
+export 'src/models/response.dart';
 export 'src/models/app_response.dart';
 export 'src/models/app_store_versions_response.dart';
 export 'src/models/request/app_info_update_request.dart';
