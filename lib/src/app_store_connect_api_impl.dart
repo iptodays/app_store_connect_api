@@ -2,7 +2,7 @@
  * @Author: iptoday wangdong1221@outlook.com
  * @Date: 2023-02-28 19:49:12
  * @LastEditors: iptoday wangdong1221@outlook.com
- * @LastEditTime: 2023-12-08 18:35:42
+ * @LastEditTime: 2023-12-11 15:29:01
  * @FilePath: /app_store_connect_api/lib/src/app_store_connect_api_impl.dart
  * 
  * Copyright (c) 2023 by iptoday wangdong1221@outlook.com, All Rights Reserved.
@@ -500,6 +500,11 @@ class AppStoreConnectApi {
       data: request.toJson(),
       serialization: AppScreenshotSetResponse.fromJson,
     );
+  }
+
+  /// https://developer.apple.com/documentation/appstoreconnectapi/delete_an_app_screenshot_set
+  Future<ApiResponse> deleteAppScreenshotSet(String id) async {
+    return _api.delete('/appScreenshotSets/$id');
   }
 
   /// https://developer.apple.com/documentation/appstoreconnectapi/create_an_app_screenshot

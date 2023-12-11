@@ -1,6 +1,6 @@
 name: app_store_connect_api_v1
 description: App Store Connect Api
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/iptodays/app_store_connect_api
 
 environment:
