@@ -18,9 +18,7 @@ class AppScreenshotSetsResponse {
 
   AppScreenshotSetsResponse.fromJson(Map<String, dynamic> json) {
     if (json['data'] is List && json['data'].isNotEmpty) {
-      data = json['data']
-          .map<AppScreenshotSet>((v) => AppScreenshotSet.fromJson(v))
-          .toList();
+      data = json['data'].map<AppScreenshotSet>((v) => AppScreenshotSet.fromJson(v)).toList();
     } else {
       data = [];
     }
@@ -48,6 +46,9 @@ class AppScreenshotSet {
   AppScreenshotSet.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     type = json['type'];
+    if (json['attributes'] != null) {
+      attributes = AppScreenshotSetAttributes.fromJson(json['attributes']);
+    }
   }
 
   Map<String, dynamic> toJson() {
