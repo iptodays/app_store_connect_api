@@ -2,8 +2,8 @@
  * @Author: iptoday wangdong1221@outlook.com
  * @Date: 2023-03-18 16:12:02
  * @LastEditors: iptoday wangdong1221@outlook.com
- * @LastEditTime: 2023-03-23 23:34:24
- * @FilePath: /app_store_connect_api/lib/src/models/bundleId_capability_response.dart
+ * @LastEditTime: 2024-08-26 10:55:40
+ * @FilePath: /app_store_connect_api/lib/src/models/bundle_id_capability_response.dart
  * 
  * Copyright (c) 2023 by iptoday wangdong1221@outlook.com, All Rights Reserved.
  */

@@ -2,7 +2,7 @@
  * @Author: iptoday wangdong1221@outlook.com
  * @Date: 2023-02-28 19:49:12
  * @LastEditors: iptoday wangdong1221@outlook.com
- * @LastEditTime: 2023-12-11 15:29:01
+ * @LastEditTime: 2024-08-26 10:53:09
  * @FilePath: /app_store_connect_api/lib/src/app_store_connect_api_impl.dart
  * 
  * Copyright (c) 2023 by iptoday wangdong1221@outlook.com, All Rights Reserved.
@@ -29,7 +29,7 @@ import 'models/app_store_review_detail_response.dart';
 import 'models/app_store_version_localizations_response.dart';
 import 'models/app_store_versions_response.dart';
 import 'models/builds_response.dart';
-import 'models/bundleId_capability_response.dart';
+import 'models/bundle_id_capability_response.dart';
 import 'models/bundle_id_response.dart';
 import 'models/certificate_response.dart';
 import 'models/profile_response.dart';
@@ -47,8 +47,8 @@ import 'models/request/app_store_version_localization_create_request.dart';
 import 'models/request/app_store_version_localization_update_request.dart';
 import 'models/request/app_store_version_update_request.dart';
 import 'models/request/app_update_request.dart';
-import 'models/request/bundleId_capability_create_request.dart';
-import 'models/request/bundleId_create_request.dart';
+import 'models/request/bundle_id_capability_create_request.dart';
+import 'models/request/bundle_id_create_request.dart';
 import 'models/request/certificate_create_request.dart';
 import 'models/request/profile_create_request.dart';
 
@@ -70,7 +70,11 @@ class AppStoreConnectApi {
     Map<String, dynamic> payload = {
       'iss': issuerId,
       'iat': iat ?? DateTime.now().millisecondsSinceEpoch / 1000,
-      'exp': exp ?? DateTime.now().add(const Duration(minutes: 20)).millisecondsSinceEpoch / 1000,
+      'exp': exp ??
+          DateTime.now()
+                  .add(const Duration(minutes: 20))
+                  .millisecondsSinceEpoch /
+              1000,
       'aud': 'appstoreconnect-v1',
       'scope': scope,
     };
@@ -156,7 +160,8 @@ class AppStoreConnectApi {
   }
 
   /// https://developer.apple.com/documentation/appstoreconnectapi/list_all_app_info_localizations_for_an_app_info
-  Future<ApiResponse<AppInfoLocalizationsResponse>> getAppInfoLocalizations(String id) async {
+  Future<ApiResponse<AppInfoLocalizationsResponse>> getAppInfoLocalizations(
+      String id) async {
     return _api.get(
       '/appInfos/$id/appInfoLocalizations',
       serialization: AppInfoLocalizationsResponse.fromJson,
@@ -164,7 +169,8 @@ class AppStoreConnectApi {
   }
 
   /// https://developer.apple.com/documentation/appstoreconnectapi/read_app_info_localization_information
-  Future<ApiResponse<AppInfoLocalizationResponse>> getAppInfoLocalization(String id) async {
+  Future<ApiResponse<AppInfoLocalizationResponse>> getAppInfoLocalization(
+      String id) async {
     return _api.get(
       '/appInfoLocalizations/$id',
       serialization: AppInfoLocalizationResponse.fromJson,
@@ -201,7 +207,8 @@ class AppStoreConnectApi {
   }
 
   /// https://developer.apple.com/documentation/appstoreconnectapi/list_all_app_store_versions_for_an_app
-  Future<ApiResponse<AppStoreVersionsResponse>> getAppStoreVersions(String id) async {
+  Future<ApiResponse<AppStoreVersionsResponse>> getAppStoreVersions(
+      String id) async {
     return _api.get<AppStoreVersionsResponse>(
       '/apps/$id/appStoreVersions',
       serialization: AppStoreVersionsResponse.fromJson,
@@ -209,7 +216,8 @@ class AppStoreConnectApi {
   }
 
   /// https://developer.apple.com/documentation/appstoreconnectapi/read_app_store_version_information
-  Future<ApiResponse<AppStoreVersionResponse>> getAppStoreVersion(String id) async {
+  Future<ApiResponse<AppStoreVersionResponse>> getAppStoreVersion(
+      String id) async {
     return _api.get<AppStoreVersionResponse>(
       '/appStoreVersions/$id',
       serialization: AppStoreVersionResponse.fromJson,
@@ -217,7 +225,8 @@ class AppStoreConnectApi {
   }
 
   /// https://developer.apple.com/documentation/appstoreconnectapi/create_an_app_store_version
-  Future<ApiResponse<AppStoreVersionResponse>> createAppStoreVersion({required AppStoreVersionCreateRequest request}) async {
+  Future<ApiResponse<AppStoreVersionResponse>> createAppStoreVersion(
+      {required AppStoreVersionCreateRequest request}) async {
     return _api.post<AppStoreVersionResponse>(
       '/appStoreVersions',
       data: request.toJson(),
@@ -254,7 +263,8 @@ class AppStoreConnectApi {
   }
 
   /// https://developer.apple.com/documentation/appstoreconnectapi/read_the_app_store_review_details_resource_information_of_an_app_store_version
-  Future<ApiResponse<AppStoreReviewDetailResponse>> getAppStoreReviewDetail(String id) async {
+  Future<ApiResponse<AppStoreReviewDetailResponse>> getAppStoreReviewDetail(
+      String id) async {
     return _api.get<AppStoreReviewDetailResponse>(
       '/appStoreVersions/$id/appStoreReviewDetail',
       serialization: AppStoreReviewDetailResponse.fromJson,
@@ -274,7 +284,8 @@ class AppStoreConnectApi {
   }
 
   /// https://developer.apple.com/documentation/appstoreconnectapi/list_all_app_store_version_localizations_for_an_app_store_version
-  Future<ApiResponse<AppStoreVersionLocalizationsResponse>> getAppStoreVersionLocalizations(String id) async {
+  Future<ApiResponse<AppStoreVersionLocalizationsResponse>>
+      getAppStoreVersionLocalizations(String id) async {
     return _api.get<AppStoreVersionLocalizationsResponse>(
       '/appStoreVersions/$id/appStoreVersionLocalizations',
       serialization: AppStoreVersionLocalizationsResponse.fromJson,
@@ -282,7 +293,8 @@ class AppStoreConnectApi {
   }
 
   /// https://developer.apple.com/documentation/appstoreconnectapi/read_app_store_version_localization_information
-  Future<ApiResponse<AppStoreVersionLocalizationResponse>> getAppStoreVersionLocalization(String id) async {
+  Future<ApiResponse<AppStoreVersionLocalizationResponse>>
+      getAppStoreVersionLocalization(String id) async {
     return _api.get<AppStoreVersionLocalizationResponse>(
       '/appStoreVersionLocalizations/$id',
       serialization: AppStoreVersionLocalizationResponse.fromJson,
@@ -290,7 +302,8 @@ class AppStoreConnectApi {
   }
 
   /// https://developer.apple.com/documentation/appstoreconnectapi/create_an_app_store_version_localization
-  Future<ApiResponse<AppStoreVersionLocalizationResponse>> createAppStoreVersionLocalization({
+  Future<ApiResponse<AppStoreVersionLocalizationResponse>>
+      createAppStoreVersionLocalization({
     required AppStoreVersionLocalizationCreateRequest request,
   }) async {
     return _api.post<AppStoreVersionLocalizationResponse>(
@@ -301,7 +314,8 @@ class AppStoreConnectApi {
   }
 
   /// https://developer.apple.com/documentation/appstoreconnectapi/modify_an_app_store_version_localization
-  Future<ApiResponse<AppStoreVersionLocalizationResponse>> updateAppStoreVersionLocalization(
+  Future<ApiResponse<AppStoreVersionLocalizationResponse>>
+      updateAppStoreVersionLocalization(
     String id, {
     required AppStoreVersionLocalizationUpdateRequest request,
   }) async {
@@ -313,11 +327,14 @@ class AppStoreConnectApi {
   }
 
   /// https://developer.apple.com/documentation/appstoreconnectapi/replace_all_app_screenshots_for_an_app_screenshot_set
-  Future<ApiResponse<AppScreenshotSetResponse>> replaceAllAppScreenshotsInScreenshotSet(
+  Future<ApiResponse<AppScreenshotSetResponse>>
+      replaceAllAppScreenshotsInScreenshotSet(
     String setId,
-    List<AppScreenshotCreateRequestDataRelationshipsAppScreenshotSetData> requests,
+    List<AppScreenshotCreateRequestDataRelationshipsAppScreenshotSetData>
+        requests,
   ) async {
-    final List<Map<String, dynamic>> requestData = requests.map((request) => request.toJson()).toList();
+    final List<Map<String, dynamic>> requestData =
+        requests.map((request) => request.toJson()).toList();
 
     final Map<String, dynamic> data = {
       'data': requestData,
@@ -335,7 +352,8 @@ class AppStoreConnectApi {
   }
 
   /// https://developer.apple.com/documentation/appstoreconnectapi/list_all_app_screenshot_sets_for_an_app_store_version_localization
-  Future<ApiResponse<AppScreenshotSetsResponse>> getAppStoreVersionLocalizationScreenshotSets(String id) async {
+  Future<ApiResponse<AppScreenshotSetsResponse>>
+      getAppStoreVersionLocalizationScreenshotSets(String id) async {
     return _api.get<AppScreenshotSetsResponse>(
       '/appStoreVersionLocalizations/$id/appScreenshotSets',
       serialization: AppScreenshotSetsResponse.fromJson,
@@ -343,7 +361,8 @@ class AppStoreConnectApi {
   }
 
   /// https://developer.apple.com/documentation/appstoreconnectapi/list_all_app_preview_sets_for_an_app_store_version_localization
-  Future<ApiResponse<AppPreviewSetsResponse>> getAppPreviewSets(String id) async {
+  Future<ApiResponse<AppPreviewSetsResponse>> getAppPreviewSets(
+      String id) async {
     return _api.get<AppPreviewSetsResponse>(
       '/appStoreVersionLocalizations/$id/appPreviewSets',
       serialization: AppPreviewSetsResponse.fromJson,
@@ -486,7 +505,8 @@ class AppStoreConnectApi {
 
   /// https://developer.apple.com/documentation/appstoreconnectapi/list_all_app_screenshots_for_an_app_screenshot_set
   /// "https://is1-ssl.mzstatic.com/image/thumb/{asset_token}/0x0ss.jpg"
-  Future<ApiResponse<AppScreenshotsResponse>> getAllScreenshotSets(String id) async {
+  Future<ApiResponse<AppScreenshotsResponse>> getAllScreenshotSets(
+      String id) async {
     return _api.get<AppScreenshotsResponse>(
       'https://api.appstoreconnect.apple.com/v1/appScreenshotSets/$id/appScreenshots',
       serialization: AppScreenshotsResponse.fromJson,
@@ -535,6 +555,7 @@ class AppStoreConnectApi {
     String screenshotId, {
     required List<UploadOperation> operations,
     required File file,
+    void Function(int, int)? onSendProgress,
   }) async {
     // https://github.com/bennord/appstore-tools/blob/0b71f88a5d/appstore_tools/actions/publish.py
     var fileStream = file.openRead();
@@ -560,13 +581,10 @@ class AppStoreConnectApi {
             headers: headers,
             method: e.method,
           ),
-          onSendProgress: (p0, p1) {
-            // print('onSendProgress: ${p0 / p1}');
-          },
+          onSendProgress: onSendProgress,
         );
         return response;
-        // ignore: deprecated_member_use
-      } on DioError catch (error) {
+      } on DioException catch (error) {
         return error.response ?? Response(requestOptions: RequestOptions());
       } catch (error) {
         return Response(requestOptions: RequestOptions());
